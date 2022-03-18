@@ -33,4 +33,12 @@ public class DespesaController {
     public void createDespesa(@RequestBody Despesa despesa){
         despesaService.createDespesaData(despesa);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteDespesaBYId(@PathVariable("id") String id){
+        despesaService.deleteDespesaData(id);
+    }
+
+
 }

@@ -28,4 +28,8 @@ public class DespesaService {
         despesaRepository.save(despesa);
     }
 
+    public void deleteDespesaData(String id){
+        despesaRepository.deleteById(id);
+    }
+
 }
