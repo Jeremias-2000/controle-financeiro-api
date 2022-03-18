@@ -27,4 +27,10 @@ public class DespesaController {
     public Despesa findDespesaById(@PathVariable("id") String id){
         return despesaService.findDespesaById(id);
     }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createDespesa(@RequestBody Despesa despesa){
+        despesaService.createDespesaData(despesa);
+    }
 }
