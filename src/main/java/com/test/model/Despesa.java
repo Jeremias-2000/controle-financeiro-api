@@ -1,11 +1,11 @@
 package com.test.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.yaml.snakeyaml.util.EnumUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -29,9 +29,14 @@ public class Despesa {
     @AllArgsConstructor
     public enum Tipo{
         ENTRADA("entrada"),
-        SAIDA("saida");
+        SAIDA_INVESTIMENTO("saida"),
+        SAIDA_GASTO_ADICIONAL("gasto_adicional");
 
-        private String descricao;
+        private  String descricao;
+
+
+
+
     }
 
 }
