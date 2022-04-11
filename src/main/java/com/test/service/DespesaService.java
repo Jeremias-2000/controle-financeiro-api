@@ -2,7 +2,6 @@ package com.test.service;
 
 import com.test.exception.DespesaNotFoundException;
 import com.test.model.Despesa;
-import com.test.model.Saldo;
 import com.test.repository.DespesaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

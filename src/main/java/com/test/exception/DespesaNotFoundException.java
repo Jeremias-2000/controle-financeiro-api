@@ -8,6 +8,6 @@ import static org.springframework.http.HttpStatus.*;
 @ResponseStatus(NOT_FOUND)
 public class DespesaNotFoundException extends RuntimeException {
     public DespesaNotFoundException(String id) {
-        super(String.format("Id não encontrado: " + id));
+        super(String.format("Id não encontrado: %s " , id));
     }
 }

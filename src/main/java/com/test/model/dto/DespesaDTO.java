@@ -1,17 +1,15 @@
-package com.test.model;
+package com.test.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.test.model.Despesa;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -20,21 +18,25 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@Document("despesas")
-@NoArgsConstructor
 @AllArgsConstructor
-public class Despesa {
-
-    @Id
+@NoArgsConstructor
+public class DespesaDTO {
     private String id;
 
+    @NotBlank
     private String descricao;
 
     private BigDecimal valor;
 
-    private LocalDate   data;
+    @NotNull
+    @NotBlank
+    @JsonFormat(pattern = "MM/dd/yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate data;
 
-    private Tipo tipo;
+    @NotNull
+    private Despesa.Tipo tipo;
 
 
     @Getter
@@ -47,5 +49,4 @@ public class Despesa {
         private  String descricao;
 
     }
-
 }
